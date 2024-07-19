@@ -4,25 +4,24 @@ import Dia from './pages/dia/Dia'
 import Login from './pages/login/Login'
 import Description from './pages/description/Description'
 
-const router = createBrowserRouter([
-  {
-    index: true,
-    path: '/',
-    element: <Login />,
-  },
-  {
-    path: ':date',
-    element: <Dia />,
-  },
-  {
-    path: '/dia/:date',
-    element: <Dia />,
-  },
-  {
-    path: '/tarefa/:date/:taskId', //'/tarefa/:date/:taskId'
-    element: <Description />,
-  },
-])
+const router = createBrowserRouter(
+  [
+    {
+      index: true,
+      path: '/:date?',
+      element: <Dia />,
+    },
+    {
+      path: '/login',
+      element: <Login />,
+    },
+    {
+      path: '/:date/:taskId', //'/tarefa/:date/:taskId'
+      element: <Description />,
+    },
+  ],
+  { basename: '/todo-app' }
+)
 
 function App() {
   return <RouterProvider router={router} />

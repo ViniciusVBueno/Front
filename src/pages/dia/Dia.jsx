@@ -10,7 +10,7 @@ import TaskList from '../dia/components/TaskList'
 function Dia() {
   const [input, setInput] = useState('')
   const [tasks, setTasks] = useState(null)
-  const { date } = useParams()
+  const { date = new Date().toISOString().slice(0, 10) } = useParams()
   const navigate = useNavigate()
 
   const formattedDate = formatarDataParaExibicao(date)
@@ -35,19 +35,19 @@ function Dia() {
   }, [date])
 
   const routeDescription = (taskId, date) => {
-    navigate(`/tarefa/${date}/${taskId}`)
+    navigate(`/${date}/${taskId}`)
   }
 
   const handlePrevDay = () => {
     const prevDate = new Date(date)
     prevDate.setDate(prevDate.getDate() - 1)
-    navigate(`/dia/${prevDate.toISOString().slice(0, 10)}`)
+    navigate(`/${prevDate.toISOString().slice(0, 10)}`)
   }
 
   const handleNextDay = () => {
     const nextDate = new Date(date)
     nextDate.setDate(nextDate.getDate() + 1)
-    navigate(`/dia/${nextDate.toISOString().slice(0, 10)}`)
+    navigate(`/${nextDate.toISOString().slice(0, 10)}`)
   }
 
   const handleChange = (event, id) => {
@@ -64,7 +64,7 @@ function Dia() {
         newStatus
       )
       console.log(id)
-      const updatedTasks = tasks.map((task) =>
+      const updatedTasks = tasks.map(task =>
         task.id === id ? { ...task, status } : task
       )
       const sortedTasks = updatedTasks.sort((a, b) => a.status - b.status)
@@ -74,7 +74,7 @@ function Dia() {
     }
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async event => {
     event.preventDefault()
     try {
       const newTask = {
@@ -101,11 +101,11 @@ function Dia() {
     }
   }
 
-  const handleDelete = async (id) => {
+  const handleDelete = async id => {
     try {
       console.log(id)
       await axios.delete(`https://bueno-devs-todo-api.fly.dev/tasks/${id}`)
-      const updatedTasks = tasks.filter((task) => task.id !== id)
+      const updatedTasks = tasks.filter(task => task.id !== id)
       setTasks(updatedTasks)
     } catch (error) {
       console.error('Erro ao deletar tarefa:', error)
