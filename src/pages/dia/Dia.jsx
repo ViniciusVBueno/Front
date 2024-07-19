@@ -136,7 +136,7 @@ function Dia() {
           />
         </article>
       ) : (
-        <p>Carregando...</p>
+        <p>Carregando..</p>
       )}
     </main>
   )
