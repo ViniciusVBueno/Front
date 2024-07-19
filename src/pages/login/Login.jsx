@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { formatDistanceToNow } from 'date-fns' // Importe o formatDistanceToNow
 import './Login.css'
 
 function Login() {
@@ -8,8 +9,9 @@ function Login() {
   const [password, setPassword] = useState('')
 
   const handleLogin = () => {
-    const actualDate = new Date()
-    const StringDate = actualDate.toISOString().slice(0, 10) // Formato AAAA-MM-DD
+    // Crie um timestamp válido (pode ser a data atual)
+    const timestamp = new Date().toISOString()
+    const StringDate = timestamp.slice(0, 10) // Formato AAAA-MM-DD
     navigate(`/${StringDate}`)
   }
 
