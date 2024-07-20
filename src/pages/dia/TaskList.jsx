@@ -1,21 +1,19 @@
-import React from 'react'
-
-const TaskList = ({
+function TaskList({
   tasks,
   handleChange,
   routeDescription,
   handleDelete,
   date,
-}) => {
+}) {
   return (
     <ul>
-      {tasks.map((task) => (
+      {tasks.map(task => (
         <li key={task.id}>
           <div className="task-item">
             <input
               type="checkbox"
               checked={task.status}
-              onChange={(event) => handleChange(event, task.id)}
+              onChange={event => handleChange(event, task.id)}
             />
             <a
               href="#"
