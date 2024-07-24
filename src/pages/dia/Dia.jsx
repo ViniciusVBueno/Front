@@ -5,13 +5,14 @@ import '../../../src/App.css'
 import Header from './Header'
 import NewTask from './NewTask'
 import TaskList from './TaskList'
+import Loader from '../loader/Loader'
 
 function Dia() {
   const [tasks, setTasks] = useState(null)
   const [refresh, setRefresh] = useState(false)
   const { date = new Date().toISOString().slice(0, 10) } = useParams()
   const navigate = useNavigate()
-  const shouldRefresh = () => setRefresh(prev => !prev)
+  const shouldRefresh = () => setRefresh((prev) => !prev)
 
   useEffect(() => {
     const fetchDados = async () => {
@@ -54,23 +55,18 @@ function Dia() {
     }
   }
 
-  const handleDelete = async id => {
+  const handleDelete = async (id) => {
     try {
       console.log(id)
       await axios.delete(`https://bueno-devs-todo-api.fly.dev/tasks/${id}`)
-      const updatedTasks = tasks.filter(task => task.id !== id)
+      const updatedTasks = tasks.filter((task) => task.id !== id)
       setTasks(updatedTasks)
     } catch (error) {
       console.error('Erro ao deletar tarefa:', error)
     }
   }
 
-  if (!tasks)
-    return (
-      <main className="container">
-        <p>Carregando..</p>
-      </main>
-    )
+  if (!tasks) return <Loader />
 
   return (
     <main className="container">

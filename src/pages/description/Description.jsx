@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import './Description.css'
 import api from '../../utils/api.utils'
+import Loader from '../loader/Loader'
 
 function Description() {
   const { taskId, date } = useParams()
@@ -22,11 +23,11 @@ function Description() {
     fetchDados()
   }, [taskId])
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setInput(event.target.value)
   }
 
-  const addDescription = async event => {
+  const addDescription = async (event) => {
     event.preventDefault()
     try {
       const newDescription = {
@@ -49,7 +50,7 @@ function Description() {
     }
   }
 
-  if (!taskData) return <p>Carregando...</p>
+  if (!taskData) return <Loader />
 
   return (
     <div>
