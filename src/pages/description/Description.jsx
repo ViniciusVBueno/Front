@@ -14,6 +14,7 @@ function Description() {
     const fetchDados = async () => {
       try {
         const response = await api.get(`/tasks/${taskId}`)
+        console.log(response.data.resposta)
         setTaskData(response.data.resposta)
       } catch (error) {
         console.error('Erro ao buscar dados:', error)
@@ -54,8 +55,8 @@ function Description() {
 
   return (
     <div>
-      <h1>{taskData[0].title} - Descrição</h1>
-      <p>{taskData[0].description}</p>
+      <h1>{taskData.title} - Descrição</h1>
+      <p>{taskData.description}</p>
       <div>
         <form onSubmit={addDescription}>
           <textarea

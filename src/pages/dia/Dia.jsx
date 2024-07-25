@@ -6,6 +6,7 @@ import Header from './Header'
 import NewTask from './NewTask'
 import TaskList from './TaskList'
 import Loader from '../loader/Loader'
+import api from '../../utils/api.utils'
 
 function Dia() {
   const [tasks, setTasks] = useState(null)
@@ -17,12 +18,9 @@ function Dia() {
   useEffect(() => {
     const fetchDados = async () => {
       try {
-        const response = await axios.get(
-          'https://bueno-devs-todo-api.fly.dev/tasks',
-          {
-            params: { date },
-          }
-        )
+        const response = await api.get('/tasks', {
+          params: { date },
+        })
         setTasks(response.data.resposta)
         console.log(response.data.resposta)
       } catch (error) {
@@ -45,10 +43,7 @@ function Dia() {
   const updateTaskStatus = async (id, status) => {
     try {
       const newStatus = { id: id, status: status }
-      await axios.post(
-        `https://bueno-devs-todo-api.fly.dev/tasks/${id}`,
-        newStatus
-      )
+      await api.post(`/tasks/${id}`, newStatus)
       shouldRefresh()
     } catch (error) {
       console.error('Erro ao atualizar status da tarefa:', error)
@@ -58,7 +53,7 @@ function Dia() {
   const handleDelete = async (id) => {
     try {
       console.log(id)
-      await axios.delete(`https://bueno-devs-todo-api.fly.dev/tasks/${id}`)
+      await api.delete(`/tasks/${id}`)
       const updatedTasks = tasks.filter((task) => task.id !== id)
       setTasks(updatedTasks)
     } catch (error) {

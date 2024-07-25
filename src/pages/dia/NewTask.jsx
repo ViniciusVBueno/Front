@@ -5,14 +5,14 @@ function NewTask(props) {
   const { date, shouldRefresh } = props
   const [input, setInput] = useState('')
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     try {
       const newTask = {
         title: input,
         status: false,
         date: date,
-        user: 'rapha',
+        user: 'rapha@mail.com',
       }
 
       const response = await api.post('/tasks/add', newTask)
@@ -33,7 +33,7 @@ function NewTask(props) {
           name="tarefa"
           id="tarefa"
           value={input}
-          onChange={event => setInput(event.target.value)}
+          onChange={(event) => setInput(event.target.value)}
         />
         <button type="submit">+</button>
       </form>
