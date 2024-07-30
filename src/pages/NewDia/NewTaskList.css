@@ -1,0 +1,29 @@
+ul {
+  padding-left: 0;
+  list-style-position: inside;
+  list-style-type: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  height: 5vh;
+  font-size: 28px;
+  background-color: white;
+}
+
+input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  align-self: center;
+}
+
+button {
+  margin-left: auto;
+  margin-right: 8px;
+  border-radius: 5px;
+}

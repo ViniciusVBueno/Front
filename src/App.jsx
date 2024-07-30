@@ -5,6 +5,7 @@ import Login from './pages/login/Login'
 import Description from './pages/description/Description'
 import ErrorPage from './pages/error/ErrorPage'
 import Loader from './pages/loader/Loader'
+import NewDia from './pages/NewDia/NewDia'
 
 const router = createBrowserRouter([
   {
