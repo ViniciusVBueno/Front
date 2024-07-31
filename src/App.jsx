@@ -11,7 +11,7 @@ const router = createBrowserRouter([
   {
     index: true,
     path: '/:date?',
-    element: <Dia />,
+    element: <NewDia />,
     errorElement: <ErrorPage />,
   },
   {

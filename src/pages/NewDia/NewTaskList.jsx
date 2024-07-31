@@ -1,21 +1,16 @@
 import './NewTaskList.css'
 import { useState } from 'react'
 
-function NewTaskList() {
-  const [listaTeste, setListaTeste] = useState([
-    'jogar',
-    'brincar',
-    'estudar',
-    'ler',
-  ])
+function NewTaskList(props) {
+  const { tasks } = props
 
   return (
     <div>
       <ul>
-        {listaTeste.map((tarefa, index) => (
+        {tasks.map((tasks, index) => (
           <li key={index}>
             <input type="checkbox" />
-            {tarefa} <button>...</button>
+            {tasks.title} <button>...</button>
           </li>
         ))}
       </ul>

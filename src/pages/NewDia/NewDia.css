@@ -25,14 +25,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: 60px;
 }
 
 .greetings > p {
   margin-top: 0;
+  color: #7e7e7ec4;
 }
 
 .greetings > h2 {
   margin-bottom: 0;
+  font-size: 30px;
 }
 
 .add-task-div {

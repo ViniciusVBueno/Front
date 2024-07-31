@@ -8,12 +8,7 @@ function Sidebar() {
       </div>
       <div>
         <h2>Lista</h2>
-        <ul>
-          <li>teste</li>
-          <li>teste</li>
-          <li>teste</li>
-          <li>teste</li>
-        </ul>
+        <ul></ul>
       </div>
     </div>
   )
