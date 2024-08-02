@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import './Login.css'
+import logo from './logo.png'
 
 function Login() {
   const navigate = useNavigate()
@@ -22,14 +23,20 @@ function Login() {
   return (
     <div className="login-container">
       <div className="login-form">
-        <div className="login-title">Todo App</div>
+        <img src={logo} alt="logo" height={96} width={96} />
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <div className="password-container">
+        <input
+          type={showPassword ? 'text' : 'password'}
+          placeholder="Senha"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        {/* <div className="password-container">
           <input
             type={showPassword ? 'text' : 'password'}
             placeholder="Senha"
@@ -39,14 +46,13 @@ function Login() {
           <span className="password-icon" onClick={togglePasswordVisibility}>
             {showPassword ? <FaEye /> : <FaEyeSlash />}
           </span>
-        </div>
+        </div> */}
         <button onClick={handleLogin}>Login</button>
         <div className="forgot-password-container">
-          <div className="forgot-password">Esqueceu a senha?</div>
+          <a href="#">Esqueceu a senha?</a>
           <div className="line"></div>
           <div>
-            Não tem uma conta?{' '}
-            <span className="register-link">Cadastre-se</span>
+            Não tem uma conta? <a href="#">Cadastre-se</a>
           </div>
         </div>
       </div>

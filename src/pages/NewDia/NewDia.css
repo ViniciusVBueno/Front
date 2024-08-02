@@ -1,10 +1,10 @@
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .container {
   display: flex;
-  height: 90vh;
+  height: 100vh;
   background-color: #f4f5f5;
   border-radius: 8px;
 }
@@ -33,14 +33,19 @@
   margin-left: 60px;
 }
 
-.greetings > p {
-  margin-top: 0;
-  color: #7e7e7ec4;
+hgroup > h2 {
+  margin-top: 4px;
+  color: #7e7e7e;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-align: left;
 }
 
-.greetings > h2 {
+hgroup > h1 {
   margin-bottom: 0;
-  font-size: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: left;
 }
 
 .add-task-div {

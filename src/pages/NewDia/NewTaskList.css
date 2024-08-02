@@ -8,12 +8,13 @@ ul {
 li {
   display: flex;
   align-items: center;
-  border-radius: 16px;
+  border-radius: 8px;
   margin-bottom: 10px;
   padding-left: 12px;
   height: 5vh;
   font-size: 20px;
   background-color: white;
+  font-weight: 600;
 }
 
 input[type='checkbox'] {

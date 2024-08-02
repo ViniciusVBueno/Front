@@ -61,10 +61,10 @@ function NewDia() {
       <Sidebar />
       <div className="main-content">
         <div className="header">
-          <div className="greetings">
-            <h2>Bom dia, Rapha Vieira</h2>{' '}
-            <p>{`${getLabel(date)}${showDate(date)}`}</p>
-          </div>
+          <hgroup>
+            <h1>Good Morning, Sullivan!</h1>{' '}
+            <h2>{`${getLabel(date)}${showDate(date)}`}</h2>
+          </hgroup>
           <Calendario />
         </div>
         <NewTaskList tasks={tasks} shouldRefresh={shouldRefresh} />
