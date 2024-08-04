@@ -65,7 +65,7 @@ function NewDia() {
             <h1>Good Morning, Sullivan!</h1>{' '}
             <h2>{`${getLabel(date)}${showDate(date)}`}</h2>
           </hgroup>
-          <Calendario />
+          <Calendario date={date} />
         </div>
         <NewTaskList tasks={tasks} shouldRefresh={shouldRefresh} />
         <div className="add-task-div">

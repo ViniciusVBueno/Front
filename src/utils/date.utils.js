@@ -15,6 +15,16 @@ export function getLabel(date) {
   return ''
 }
 
+export function getLabelforButton(date) {
+  const selectedDate = parseISO(date)
+
+  if (isToday(selectedDate)) return 'Hoje'
+  if (isTomorrow(selectedDate)) return 'Amanhã'
+  if (isYesterday(selectedDate)) return 'Ontem'
+
+  return `Dia ${selectedDate.getDate().toString()}`
+}
+
 export function showDate(date) {
   const dataObj = parseISO(date)
   return format(dataObj, "EEEE dd 'de' MMMM 'de' yyyy", { locale: ptBR })
