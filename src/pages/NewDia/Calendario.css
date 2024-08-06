@@ -1,6 +1,5 @@
 .dropdown-calendar {
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   background-color: white;
   border-radius: 8px;
@@ -10,9 +9,10 @@
   padding-left: 20px;
 }
 
-.dropdown-calendar {
+.dropdown-calendar > span {
   font-weight: 600;
   font-size: 1.4rem;
+  margin-left: 1rem;
 }
 
 .calendar-container {

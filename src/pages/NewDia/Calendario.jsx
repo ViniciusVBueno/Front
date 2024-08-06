@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import DatePicker from 'react-datepicker'
 import { useNavigate } from 'react-router-dom'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -11,6 +11,7 @@ function Calendario(props) {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedDate, setSelectedDate] = useState(null)
   const navigate = useNavigate()
+  const calendarRef = useRef(null)
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen)
@@ -18,14 +19,28 @@ function Calendario(props) {
 
   const handleDateChange = (date) => {
     const dataTratada = date.toISOString().slice(0, 10)
+    setSelectedDate(date)
     setIsOpen(false)
     navigate(`/${dataTratada}`)
   }
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (calendarRef.current && !calendarRef.current.contains(event.target)) {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
   return (
-    <div className="dropdown-calendar">
+    <div className="dropdown-calendar" ref={calendarRef}>
       <button onClick={toggleDropdown} className="day-button">
-        {selectedDate ? selectedDate.toLocaleDateString() : <IoIosArrowDown />}
+        {<IoIosArrowDown />}
       </button>
       <span>{getLabelforButton(date)}</span>
       {isOpen && (

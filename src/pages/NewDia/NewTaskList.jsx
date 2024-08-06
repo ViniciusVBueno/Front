@@ -24,9 +24,9 @@ function NewTaskList(props) {
   return (
     <div>
       <ul>
-        {tasks.map((task, index) => (
+        {tasks.map((task, id) => (
           <li
-            key={index}
+            key={id}
             className={task.status ? 'completed-task' : 'incomplete-task'}
           >
             <input
@@ -34,7 +34,8 @@ function NewTaskList(props) {
               checked={task.status}
               onChange={(event) => handleChange(event, task.id)}
             />
-            {task.title} <TaskButton />
+            {task.title}{' '}
+            <TaskButton taskid={task.id} shouldRefresh={shouldRefresh} />
           </li>
         ))}
       </ul>

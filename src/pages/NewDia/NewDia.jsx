@@ -20,7 +20,6 @@ function NewDia() {
   const [tasks, setTasks] = useState(null)
   const [refresh, setRefresh] = useState(false)
   const [input, setInput] = useState('')
-
   const shouldRefresh = () => setRefresh((prev) => !prev)
 
   useEffect(() => {

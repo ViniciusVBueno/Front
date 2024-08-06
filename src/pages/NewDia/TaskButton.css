@@ -1,5 +1,30 @@
+.task-options-div {
+  margin-left: auto;
+  margin-right: 8px;
+  max-height: 2rem;
+  max-width: 1.5rem;
+  margin-bottom: 1px;
+}
+
 .task-options {
   position: relative;
-  top: 20px;
-  background-color: blue;
+  background-color: white;
+  margin-top: 1px;
+  width: 5rem;
+  z-index: 999;
+}
+
+.task-options > div:hover {
+  background-color: black;
+  color: white;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
+  z-index: 999; /* Certifique-se de que este elemento fique acima de tudo */
 }

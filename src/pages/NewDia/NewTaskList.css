@@ -25,12 +25,6 @@ input[type='checkbox'] {
   align-self: center;
 }
 
-button {
-  margin-left: auto;
-  margin-right: 8px;
-  border-radius: 5px;
-}
-
 .completed-task {
   text-decoration: line-through;
   transition: text-decoration 1s ease-in-out;
