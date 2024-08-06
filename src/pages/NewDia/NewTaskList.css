@@ -3,6 +3,7 @@ ul {
   list-style-position: inside;
   list-style-type: none;
   margin-left: 60px;
+  margin-right: 120px;
 }
 
 li {

@@ -1,6 +1,7 @@
 import './NewTaskList.css'
 import { useState } from 'react'
 import api from '../../utils/api.utils'
+import TaskButton from './TaskButton'
 
 function NewTaskList(props) {
   const { tasks, shouldRefresh } = props
@@ -33,7 +34,7 @@ function NewTaskList(props) {
               checked={task.status}
               onChange={(event) => handleChange(event, task.id)}
             />
-            {task.title} <button>...</button>
+            {task.title} <TaskButton />
           </li>
         ))}
       </ul>

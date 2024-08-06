@@ -10,7 +10,13 @@ import { getLabel } from '../../utils/date.utils'
 import Calendario from './Calendario'
 
 function NewDia() {
-  const { date = new Date().toISOString().slice(0, 10) } = useParams()
+  const {
+    date = new Date()
+      .toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' })
+      .split('/')
+      .reverse()
+      .join('-'),
+  } = useParams()
   const [tasks, setTasks] = useState(null)
   const [refresh, setRefresh] = useState(false)
   const [input, setInput] = useState('')
