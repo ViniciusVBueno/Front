@@ -52,7 +52,9 @@ function TaskButton(props) {
           <div onClick={() => openTaskEditor(taskid)}>Editar</div>
         </div>
       )}{' '}
-      {editTaskOpen && <EditTask openTaskEditor={openTaskEditor} />}{' '}
+      {editTaskOpen && (
+        <EditTask openTaskEditor={openTaskEditor} taskid={taskid} />
+      )}{' '}
       {editTaskOpen && <div className="overlay"></div>}
     </div>
   )

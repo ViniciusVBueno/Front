@@ -8,6 +8,7 @@ import Loader from '../loader/Loader'
 import { showDate } from '../../utils/date.utils'
 import { getLabel } from '../../utils/date.utils'
 import Calendario from './Calendario'
+import AddTask from './AddTask'
 
 function NewDia() {
   const {
@@ -21,6 +22,7 @@ function NewDia() {
   const [refresh, setRefresh] = useState(false)
   const [input, setInput] = useState('')
   const shouldRefresh = () => setRefresh((prev) => !prev)
+  const [addTaskOpen, SetAddTaskOpen] = useState(false)
 
   useEffect(() => {
     const fetchDados = async () => {
@@ -59,6 +61,10 @@ function NewDia() {
     }
   }
 
+  function OpenAddTask() {
+    SetAddTaskOpen(!addTaskOpen)
+  }
+
   if (!tasks) return <Loader />
 
   return (
@@ -74,18 +80,8 @@ function NewDia() {
         </div>
         <NewTaskList tasks={tasks} shouldRefresh={shouldRefresh} />
         <div className="add-task-div">
-          <input
-            type="text"
-            className="input"
-            placeholder="Crie uma nova tarefa"
-            name="tarefa"
-            id="tarefa"
-            value={input}
-            onChange={(event) => setInput(event.target.value)}
-          />
-          <button className="add-task" onClick={handleSubmit}>
-            +
-          </button>
+          <button onClick={() => OpenAddTask()}>+ Adicionar Tarefa</button>
+          {addTaskOpen && <AddTask />}
         </div>
       </div>
     </div>
