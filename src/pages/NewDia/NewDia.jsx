@@ -81,7 +81,13 @@ function NewDia() {
         <NewTaskList tasks={tasks} shouldRefresh={shouldRefresh} />
         <div className="add-task-div">
           <button onClick={() => OpenAddTask()}>+ Adicionar Tarefa</button>
-          {addTaskOpen && <AddTask />}
+          {addTaskOpen && (
+            <AddTask
+              OpenAddTask={OpenAddTask}
+              date={date}
+              shouldRefresh={shouldRefresh}
+            />
+          )}
         </div>
       </div>
     </div>
