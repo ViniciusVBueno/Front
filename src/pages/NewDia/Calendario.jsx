@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import './Calendario.css'
 import { getLabelforButton } from '../../utils/date.utils'
 import { IoIosArrowDown } from 'react-icons/io'
+import { ptBR } from 'date-fns/locale'
 
 function Calendario(props) {
   const { date } = props
@@ -49,6 +50,7 @@ function Calendario(props) {
             selected={selectedDate}
             onChange={handleDateChange}
             inline
+            locale={ptBR}
           />
         </div>
       )}

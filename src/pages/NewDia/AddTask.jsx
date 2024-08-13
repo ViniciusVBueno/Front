@@ -2,11 +2,15 @@ import { useState } from 'react'
 import './AddTask.css'
 import DatePicker from 'react-datepicker'
 import api from '../../utils/api.utils'
+import { useNavigate } from 'react-router-dom'
+import { parseISO } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
 function AddTask(props) {
-  const { OpenAddTask, shouldRefresh } = props
+  const { OpenAddTask, shouldRefresh, date } = props
   const [input, setInput] = useState('')
-  const [selectedDate, setSelectedDate] = useState(null)
+  const [selectedDate, setSelectedDate] = useState(parseISO(date))
+  const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -33,6 +37,7 @@ function AddTask(props) {
   const handleDateChange = (date) => {
     const dataTratada = date.toISOString().slice(0, 10)
     setSelectedDate(date)
+    navigate(`/${dataTratada}`)
   }
 
   return (
@@ -52,6 +57,7 @@ function AddTask(props) {
         className="calendario"
         selected={selectedDate}
         onChange={handleDateChange}
+        locale={ptBR}
       />
       <div className="button-div">
         <button onClick={handleSubmit}>Salvar</button>

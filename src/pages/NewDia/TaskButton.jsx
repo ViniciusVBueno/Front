@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import api from '../../utils/api.utils'
 import './TaskButton.css'
 import EditTask from './EditTask'
+import { IoMdMore } from 'react-icons/io'
 
 function TaskButton(props) {
   const { taskid, shouldRefresh } = props
@@ -45,7 +46,9 @@ function TaskButton(props) {
 
   return (
     <div className="task-options-div">
-      <button onClick={() => openOptions()}>...</button>{' '}
+      <button onClick={() => openOptions()}>
+        <IoMdMore />
+      </button>{' '}
       {isOpen && (
         <div className="task-options" ref={taskButtonRef}>
           <div onClick={() => handleDelete(taskid)}>Deletar</div>
