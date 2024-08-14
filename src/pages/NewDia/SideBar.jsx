@@ -1,10 +1,13 @@
 import './Sidebar.css'
 
-function Sidebar() {
+function Sidebar(props) {
+  const { user } = props
+
   return (
     <div className="sidebar">
       <div>
-        FOTO e nome<button>Config</button>
+        FOTO {user.name}
+        <button>Config</button>
       </div>
       <div>
         <h2>Lista</h2>

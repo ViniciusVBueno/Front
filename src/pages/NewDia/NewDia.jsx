@@ -23,15 +23,21 @@ function NewDia() {
   const [input, setInput] = useState('')
   const shouldRefresh = () => setRefresh((prev) => !prev)
   const [addTaskOpen, SetAddTaskOpen] = useState(false)
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
     const fetchDados = async () => {
       try {
+        const userResponse = await api.get(`/user/${1}`) //o valor um seria o valor do id do usuario
+        setUser(userResponse.data.user)
+
         const response = await api.get('/tasks', {
-          params: { date },
+          params: {
+            userId: 1,
+            date: date,
+          },
         })
-        setTasks(response.data.resposta)
-        console.log(response.data.resposta)
+        setTasks(response.data.tasks)
       } catch (error) {
         console.error('Erro ao buscar dados:', error)
       }
@@ -69,11 +75,11 @@ function NewDia() {
 
   return (
     <div className="container">
-      <Sidebar />
+      <Sidebar user={user} />
       <div className="main-content">
         <div className="header">
           <hgroup>
-            <h1>Good Morning, Sullivan!</h1>{' '}
+            <h1>Good Morning, {user.name}</h1>{' '}
             <h2>{`${getLabel(date)}${showDate(date)}`}</h2>
           </hgroup>
           <Calendario date={date} />
