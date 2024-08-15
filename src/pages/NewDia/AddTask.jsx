@@ -17,9 +17,8 @@ function AddTask(props) {
     try {
       const newTask = {
         title: input,
-        status: false,
         date: selectedDate,
-        user: 'rapha@mail.com',
+        userId: 1,
       }
 
       const response = await api.post('/tasks/add', newTask)

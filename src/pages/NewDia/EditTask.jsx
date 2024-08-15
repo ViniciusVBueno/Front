@@ -5,7 +5,7 @@ import api from '../../utils/api.utils'
 import { useNavigate } from 'react-router-dom'
 
 function EditTask(props) {
-  const { openTaskEditor, taskid } = props
+  const { openTaskEditor, taskid, shouldRefresh } = props
   const [description, setDescription] = useState('')
   const [taskTitleInput, setTaskTitleInput] = useState('')
   const [descriptionInput, setDescriptionInput] = useState('')
@@ -16,8 +16,7 @@ function EditTask(props) {
     const fetchDados = async () => {
       try {
         const response = await api.get(`/tasks/${taskid}`)
-        console.log(response.data.resposta)
-        setTask(response.data.resposta)
+        setTask(response.data.task)
       } catch (error) {
         console.error('Erro ao buscar dados:', error)
       }
@@ -38,15 +37,13 @@ function EditTask(props) {
     console.log(descriptionInput)
     event.preventDefault()
     try {
-      const newDescription = {
+      const editedTask = {
         id: task.id,
         description: descriptionInput,
+        title: taskTitleInput,
       }
 
-      const response = await api.post(
-        `/tasks/${taskid}/update-description`,
-        newDescription
-      )
+      const response = await api.post(`/tasks/${taskid}`, editedTask)
 
       if (response.status !== 200)
         throw new Error('Erro ao adicionar descrição. Verifique o servidor.')
@@ -56,6 +53,7 @@ function EditTask(props) {
     } catch (error) {
       console.error('Erro ao processar a requisição:', error)
     }
+    shouldRefresh()
   }
 
   if (!task) return <Loader />

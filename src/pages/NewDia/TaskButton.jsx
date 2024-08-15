@@ -20,8 +20,12 @@ function TaskButton(props) {
 
   const handleDelete = async (id) => {
     try {
-      console.log(id)
-      await api.delete(`/tasks/${id}`)
+      await api.delete(`/tasks/${id}`, {
+        params: {
+          userId: 1,
+          id: id,
+        },
+      })
       shouldRefresh()
     } catch (error) {
       console.error('Erro ao deletar tarefa:', error)
@@ -56,7 +60,11 @@ function TaskButton(props) {
         </div>
       )}{' '}
       {editTaskOpen && (
-        <EditTask openTaskEditor={openTaskEditor} taskid={taskid} />
+        <EditTask
+          openTaskEditor={openTaskEditor}
+          taskid={taskid}
+          shouldRefresh={shouldRefresh}
+        />
       )}{' '}
       {editTaskOpen && <div className="overlay"></div>}
     </div>
