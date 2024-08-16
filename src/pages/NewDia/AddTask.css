@@ -6,7 +6,7 @@
   top: 36%;
   background-color: white;
   height: 56vh;
-  width: 33.5vw;
+  width: 30vw;
   border-radius: 8px;
 }
 .calendario {
@@ -19,18 +19,26 @@
 
 .add-task-screen > input {
   width: 90%;
-  height: 10%;
-  margin: 10px;
-  font-size: 1.3rem;
-  font-weight: 600;
+  height: 12%;
+  margin-top: 14px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 5px
 }
 
 .add-task-screen > textarea {
   width: 90%;
   height: 20%;
+  margin-top: 14px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 10px;
   font-size: 1.2rem;
   font-weight: 500;
-  margin-bottom: 0;
+  border-radius: 5px
 }
 
 .button-div {
@@ -38,7 +46,15 @@
 }
 
 .button-div > button {
-  height: 2.5rem;
-  width: 6rem;
-  margin: 10px;
+background-color: #f4f5f5;
+color: black;
+border: none;
+width: 6rem;
+margin: 10px;
+text-align: center;
+display: inline-block;
+font-size: 16px;
+cursor: pointer;
+border-radius: 5px;
+font-weight: 600;
 }

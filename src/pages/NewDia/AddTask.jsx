@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import './AddTask.css'
-import DatePicker from 'react-datepicker'
 import api from '../../utils/api.utils'
 import { useNavigate } from 'react-router-dom'
-import { parseISO } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { DateCalendar } from '@mui/x-date-pickers/DateCalendar'
+import dayjs from 'dayjs'
 
 function AddTask(props) {
   const { OpenAddTask, shouldRefresh, date } = props
   const [input, setInput] = useState('')
-  const [selectedDate, setSelectedDate] = useState(parseISO(date))
+  const [selectedDate, setSelectedDate] = useState(dayjs(date))
   const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
@@ -17,7 +18,7 @@ function AddTask(props) {
     try {
       const newTask = {
         title: input,
-        date: selectedDate,
+        date: selectedDate.toISOString(),
         userId: 1,
       }
 
@@ -51,13 +52,12 @@ function AddTask(props) {
         id="descrição"
         placeholder="Descrição"
       ></textarea>
-      <DatePicker
-        open={true}
-        className="calendario"
-        selected={selectedDate}
-        onChange={handleDateChange}
-        locale={ptBR}
-      />
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DateCalendar
+          value={selectedDate}
+          onChange={handleDateChange}
+        />
+      </LocalizationProvider>
       <div className="button-div">
         <button onClick={handleSubmit}>Salvar</button>
         <button onClick={() => OpenAddTask()}>Cancelar</button>
