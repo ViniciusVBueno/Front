@@ -3,6 +3,7 @@ import './EditTask.css'
 import Loader from '../loader/Loader'
 import api from '../../utils/api.utils'
 import { useNavigate } from 'react-router-dom'
+import { Input, Textarea, Button } from '@mui/joy'
 
 function EditTask(props) {
   const { openTaskEditor, taskid, shouldRefresh } = props
@@ -23,7 +24,7 @@ function EditTask(props) {
     }
 
     fetchDados()
-  }, [])
+  }, [taskid])
 
   const handleChangeTitle = (event) => {
     setTaskTitleInput(event.target.value)
@@ -34,7 +35,6 @@ function EditTask(props) {
   }
 
   const addDescription = async (event) => {
-    console.log(descriptionInput)
     event.preventDefault()
     try {
       const editedTask = {
@@ -61,21 +61,25 @@ function EditTask(props) {
   return (
     <div className="edit-task">
       <span>Nome da Tarefa: {task.title}</span>
-      <input
-        type="text"
+      <Input
+        placeholder="Nome da Tarefa"
         value={taskTitleInput}
         onChange={handleChangeTitle}
-      />{' '}
-      <span>Descrição: {task.description}</span>{' '}
-      <textarea
-        name="descrição"
-        id="descrição"
+      />
+      <span>Descrição: {task.description}</span>
+      <Textarea
+        placeholder="Descrição"
+        minRows={3}
         value={descriptionInput}
         onChange={handleChangeDescription}
-      ></textarea>
-      <div>
-        <button onClick={addDescription}>Salvar Alterações</button>
-        <button onClick={() => openTaskEditor()}>Cancelar</button>
+      />
+      <div className="button-edit">
+        <Button variant="outlined" onClick={addDescription}>
+          Salvar
+        </Button>
+        <Button variant="outlined" onClick={() => openTaskEditor()}>
+          Cancelar
+        </Button>
       </div>
     </div>
   )

@@ -6,6 +6,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar'
 import dayjs from 'dayjs'
+import { Input, Textarea, Button } from '@mui/joy'
 
 function AddTask(props) {
   const { OpenAddTask, shouldRefresh, date } = props
@@ -19,7 +20,7 @@ function AddTask(props) {
       const newTask = {
         title: input,
         date: selectedDate.toISOString(),
-        userId: 1,
+        userId: 3,
       }
 
       const response = await api.post('/tasks/add', newTask)
@@ -42,25 +43,25 @@ function AddTask(props) {
 
   return (
     <div className="add-task-screen">
-      <input
-        type="text"
+      <Input
         placeholder="Nome da Tarefa"
+        value={input}
         onChange={(event) => setInput(event.target.value)}
       />
-      <textarea
-        name="descrição"
-        id="descrição"
+      <Textarea
         placeholder="Descrição"
-      ></textarea>
+        minRows={3}
+      />
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DateCalendar
-          value={selectedDate}
-          onChange={handleDateChange}
-        />
+        <DateCalendar value={selectedDate} onChange={handleDateChange} />
       </LocalizationProvider>
       <div className="button-div">
-        <button onClick={handleSubmit}>Salvar</button>
-        <button onClick={() => OpenAddTask()}>Cancelar</button>
+        <Button variant="outlined" onClick={handleSubmit}>
+          Salvar
+        </Button>
+        <Button variant="outlined" onClick={() => OpenAddTask()}>
+          Cancelar
+        </Button>
       </div>
     </div>
   )

@@ -1,7 +1,8 @@
 import './Sidebar.css'
 import Avatar from '@mui/material/Avatar'
 import Stack from '@mui/material/Stack'
-import { deepOrange, deepPurple } from '@mui/material/colors'
+import { deepPurple } from '@mui/material/colors'
+import { Button } from '@mui/joy'
 
 function Sidebar(props) {
   const { user } = props
@@ -19,7 +20,11 @@ function Sidebar(props) {
           </Avatar>
         </Stack>
         <span className="user-name">{user.name}</span>
-        <button className="config-button">Config</button>
+        <div className="button-config">
+          <Button variant="outlined" >
+            Config
+          </Button>
+        </div>
       </div>
       <div>
         <h2>Lista</h2>
@@ -30,4 +35,3 @@ function Sidebar(props) {
 }
 
 export default Sidebar
-

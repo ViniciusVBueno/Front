@@ -1,60 +1,47 @@
 .add-task-screen {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
+  background-color: white;
   align-items: center;
   position: absolute;
   top: 36%;
-  background-color: white;
   height: 56vh;
   width: 30vw;
   border-radius: 8px;
-}
-.calendario {
-  margin: 0;
-  background-color: white;
-  border: solid 1px white;
-  height: 1px;
-  width: 1px;
+  padding: 16px; /* Adicionei padding para ajustar a distância das bordas */
+  box-sizing: border-box;
 }
 
-.add-task-screen > input {
-  width: 90%;
-  height: 12%;
-  margin-top: 14px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-left: 10px;
+.add-task-screen .MuiInput-root {
+  width: 100%; /* Mantém a largura em 100% */
+  margin-bottom: 8px; /* Margem inferior para espaçamento entre elementos */
+  height: 50px;
   font-size: 1.2rem;
-  font-weight: 500;
-  border-radius: 5px
-}
+  font-weight: 400;
+} /* Estilo para o Input */
 
-.add-task-screen > textarea {
-  width: 90%;
-  height: 20%;
-  margin-top: 14px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-left: 10px;
+.add-task-screen .MuiTextarea-root { /* Estilo para o Textarea */
+  width: 100%; /* Mantém a largura em 100% */
+  margin-bottom: -8px; /* Margem inferior para espaçamento entre elementos */
+  height: 110px;
   font-size: 1.2rem;
-  font-weight: 500;
-  border-radius: 5px
+  font-weight: 400;
 }
 
 .button-div {
   margin-top: auto;
 }
 
-.button-div > button {
-background-color: #f4f5f5;
-color: black;
-border: none;
-width: 6rem;
-margin: 10px;
-text-align: center;
-display: inline-block;
-font-size: 16px;
-cursor: pointer;
-border-radius: 5px;
-font-weight: 600;
+.button-div > .MuiButton-root {
+  background-color: #f4f5f5;
+  color: black;
+  width: 6rem;
+  margin-left: 12px;
+  margin-right: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 600;
+  border: 1px solid black;
 }

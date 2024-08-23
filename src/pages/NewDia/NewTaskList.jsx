@@ -11,16 +11,24 @@ function NewTaskList(props) {
     updateTaskStatus(id, newStatus)
   }
 
-  const updateTaskStatus = async (id, status) => {
+  const updateTaskStatus = async (id, status, title, description, userId) => {
     try {
-      const newStatus = { id: id, status: status }
-      await api.post(`/tasks/${id}`, newStatus)
+      const taskData = {
+        id: id,
+        userId: userId,
+        status: status,
+        title: title,
+        description: description
+      }
+      const response = await api.post(`/tasks/${id}/update`, taskData)
+      
       shouldRefresh()
     } catch (error) {
       console.error('Erro ao atualizar status da tarefa:', error)
     }
   }
-
+  
+  
   return (
     <div>
       <ul>
