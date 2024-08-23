@@ -28,7 +28,7 @@ function NewDia() {
   useEffect(() => {
     const fetchDados = async () => {
       try {
-        const userResponse = await api.get(`/user/${1}`) //o valor um seria o valor do id do usuario
+        const userResponse = await api.get(`/user/${3}`) //o valor um seria o valor do id do usuario
         setUser(userResponse.data.user)
 
         const response = await api.get('/tasks', {

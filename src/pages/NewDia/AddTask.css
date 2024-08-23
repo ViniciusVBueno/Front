@@ -9,21 +9,21 @@
   height: 56vh;
   width: 30vw;
   border-radius: 8px;
-  padding: 16px; /* Adicionei padding para ajustar a distância das bordas */
+  padding: 16px;
   box-sizing: border-box;
 }
 
 .add-task-screen .MuiInput-root {
-  width: 100%; /* Mantém a largura em 100% */
-  margin-bottom: 8px; /* Margem inferior para espaçamento entre elementos */
+  width: 100%;
+  margin-bottom: 8px;
   height: 50px;
   font-size: 1.2rem;
   font-weight: 400;
-} /* Estilo para o Input */
+}
 
-.add-task-screen .MuiTextarea-root { /* Estilo para o Textarea */
-  width: 100%; /* Mantém a largura em 100% */
-  margin-bottom: -8px; /* Margem inferior para espaçamento entre elementos */
+.add-task-screen .MuiTextarea-root {
+  width: 100%;
+  margin-bottom: -8px;
   height: 110px;
   font-size: 1.2rem;
   font-weight: 400;

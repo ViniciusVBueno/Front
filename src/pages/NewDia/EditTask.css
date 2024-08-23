@@ -14,16 +14,16 @@
 }
 
 .edit-task .MuiInput-root {
-  width: 100%; /* Mantém a largura em 100% */
-  margin-bottom: 8px; /* Margem inferior para espaçamento entre elementos */
+  width: 100%;
+  margin-bottom: 8px;
   height: 50px;
   font-size: 1.2rem;
   font-weight: 400;
 }
 
 .edit-task .MuiTextarea-root {
-  width: 100%; /* Mantém a largura em 100% */
-  margin-bottom: 4px; /* Margem inferior para espaçamento entre elementos */
+  width: 100%;
+  margin-bottom: 4px;
   height: 110px;
   font-size: 1.2rem;
   font-weight: 400;

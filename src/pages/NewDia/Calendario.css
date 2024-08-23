@@ -6,7 +6,7 @@
   width: 9rem;
   height: 2.5rem;
   padding-left: 20px;
-  position: relative; /* Mantém o contexto de posição para o calendário */
+  position: relative;
 }
 
 .dropdown-calendar > span {
@@ -21,11 +21,11 @@
   margin-top: 5px;
   background-color: white;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  top: 100%; /* Posiciona o calendário abaixo do botão */
-  left: 50%; /* Centraliza o calendário em relação ao contêiner */
-  transform: translateX(-50%); /* Ajusta o alinhamento para centralizar exatamente abaixo do texto "dia" */
-  border-radius: 8px; /* Adiciona bordas arredondadas ao calendário */
-  overflow: hidden; /* Garante que o conteúdo do calendário respeite as bordas arredondadas */
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .day-button {
